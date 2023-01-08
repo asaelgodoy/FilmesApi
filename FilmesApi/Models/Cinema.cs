@@ -8,9 +8,10 @@ namespace FilmesApi.Models
         [Key]
         [Required]
         public int Id { get; set; }
-
         [Required]
-        public string Nome { get; set; }
-
+        public string Nome { get; set; }        
+        public virtual Endereco Endereco { get; set; }
+        [JsonIgnore]
+        public int EnderecoId { get; set; }
     }
 }
