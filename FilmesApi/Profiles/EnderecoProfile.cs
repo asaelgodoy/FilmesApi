@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
-using FilmesAPI.Data.Dtos;
 using FilmesApi.Models;
-using FilmesApi.Data.Dtos.Endereco;
+using FilmesAPI.Data.Dtos;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace FilmesApi.Profiles
 {
@@ -10,7 +13,7 @@ namespace FilmesApi.Profiles
         public EnderecoProfile()
         {
             CreateMap<CreateEnderecoDto, Endereco>();
-            CreateMap<Endereco, ReadCinemaDto>();
+            CreateMap<Endereco, ReadEnderecoDto>();
             CreateMap<UpdateEnderecoDto, Endereco>();
         }
     }

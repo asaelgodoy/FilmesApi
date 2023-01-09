@@ -1,17 +1,22 @@
 ﻿using AutoMapper;
 using FilmesApi.Data;
-using FilmesApi.Data.Dtos.Endereco;
 using FilmesApi.Models;
+using FilmesAPI.Data.Dtos;
+using FilmesAPI.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace FilmesApi.Controllers
+namespace FilmesAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class EnderecoController : ControllerBase
     {
-        private readonly AppDbContext _context;
-        private readonly IMapper _mapper;
+        private AppDbContext _context;
+        private IMapper _mapper;
 
         public EnderecoController(AppDbContext context, IMapper mapper)
         {
@@ -59,6 +64,7 @@ namespace FilmesApi.Controllers
             _context.SaveChanges();
             return NoContent();
         }
+
 
         [HttpDelete("{id}")]
         public IActionResult DeletaEndereco(int id)
