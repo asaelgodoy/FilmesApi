@@ -1,6 +1,7 @@
 ﻿using FilmesApi.Services;
 using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,16 +45,16 @@ namespace FilmesAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult AtualizaFilme(int id, [FromBody] UpdateFilmeDto filmeDto)
         {
-            ReadFilmeDto readDto = _filmeService.Update(id, filmeDto);
-            if (readDto != null) return NoContent();
+            Result resultado = _filmeService.Update(id, filmeDto);
+            if (resultado.IsSuccess) return NoContent();
             return NotFound();
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeletaFilme(int id)
         {
-            ReadFilmeDto readDto = _filmeService.Delete(id);
-            if (readDto != null) return NoContent();
+            Result resultado = _filmeService.Delete(id);
+            if (resultado.IsSuccess) return NoContent();
             return NotFound();
         }
     }
